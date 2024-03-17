@@ -1,0 +1,77 @@
+#!/bin/bash
+
+BLUE='\033[1;34m'
+GREEN='\033[1;32m'
+RED='\033[0;31m'
+RESET='\033[0m'
+
+function xecho {
+  echo "\n$1[$2]: $3"
+}
+
+function xecho_info {
+  xecho "$BLUE" "$1" "$2"
+}
+
+function xecho_success {
+  xecho "$GREEN" "$1" "$2"
+}
+
+function xecho_error {
+  xecho "$RED" "$1" "$2"
+}
+
+if ! [ $(command -v brew) ]; then
+  xecho_info "install" "Installing brew"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+if uname -a | grep -q arm; then
+  HOMEBREW_PATH="/opt/homebrew/bin"
+else
+  HOMEBREW_PATH="/usr/local/bin/"
+fi
+
+xecho_info "brew" "Setup brew path"
+PATH="$HOMEBREW_PATH:$PATH"
+
+xecho_info "brew" "Bundling formulaes & casks"
+brew bundle
+
+xecho_info "zsh" "Symlink zshrc"
+ln -s -i $(pwd)/zsh/zshrc.symlink ~/.zshrc
+source ~/.zshrc
+
+xecho_info "zsh" "Symlink p10k config"
+ln -s -i $(pwd)/p10k/p10k.zsh.symlink ~/.p10k.zsh
+
+xecho_info "asdf" "Adding ASDF plugins"
+asdf plugin-add elixir
+asdf plugin-add erlang
+asdf plugin-add nodejs
+asdf plugin-add postgres
+asdf plugin-add redis
+asdf plugin-add ruby
+
+xecho_info "asdf", "Symlink .tool-versions"
+ln -s -i $(pwd)/asdf/tool-versions.symlink ~/.tool-versions
+(cd ~/ && asdf install)
+
+xecho_info "git" "Symlink .gitconfig"
+ln -s -i $(pwd)/git/gitconfig.symlink ~/.gitconfig
+
+xecho_info "code" "Symlink keybindings.json"
+ln -s -i $(pwd)/code/keybindings.json.symlink  ~/Library/Application\ Support/Code/User/keybindings.json
+
+xecho_info "code" "Symlink settings.json"
+ln -s -i $(pwd)/code/settings.json.symlink  ~/Library/Application\ Support/Code/User/settings.json
+
+if [ $(command -v code) ]; then
+  cat code/vscode-extensions.list | grep -v '^#' | xargs -L1 code --install-extension
+  xecho_info "code" "Installing extensions"
+else
+  xecho_error "code" "Couldn't install extensions"
+fi
+
+xecho_info "karabiner" "Symlink karabiner.json"
+ln -s -i $(pwd)/karabiner/karabiner.json.symlink ~/.config/karabiner/karabiner.json

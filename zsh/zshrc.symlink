@@ -1,0 +1,20 @@
+export ZSH=$HOME/dotfiles
+
+config_files=($ZSH/**/*.zsh)
+
+chmod -R u+rwx *
+
+for misc in ${config_files:#~(*/(path|completions).zsh)}
+do
+  print $misc
+done
+
+for path in ${(M)config_files:#*/path.zsh}
+do
+  source $path
+done
+
+for completion in ${(M)config_files:#*/completions.zsh}
+do
+  source $completion
+done

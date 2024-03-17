@@ -1,0 +1,21 @@
+[core]
+	autocrlf = input
+[user]
+	name = pedroseabra1091
+	email = pedroseabra1091@gmail.com
+[pager]
+	branch = false
+[alias]
+        ga            = ! git add .
+        gb            = ! git branch
+        gc            = ! git commit
+        gca           = ! git commit --amend --no-edit
+        gco           = ! git checkout
+        gcb           = ! git checkout -b
+        gst           = ! git status
+        gpr           = ! git pull --rebase
+        gr            = ! git rebase
+        last          = ! git log -1 --stat
+        last-hash     = ! git log -1 --stat | grep commit | cut -d ' ' -f2
+        open-issue    = ! git rev-parse --abbrev-ref HEAD | grep -o '[0-9]*' | xargs -I {} open 'https://github.com/iampopbv/pop2/issues/'{}
+        open-pr       = ! git rev-parse --abbrev-ref HEAD | xargs gh pr view --web
