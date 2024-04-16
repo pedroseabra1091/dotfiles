@@ -24,30 +24,32 @@ function xecho_error {
 if ! [ $(command -v brew) ]; then
   xecho_info "install" "Installing brew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
-if uname -a | grep -q arm; then
-  HOMEBREW_PATH="/opt/homebrew/bin"
 else
-  HOMEBREW_PATH="/usr/local/bin/"
+  xecho_info "update" "Update brew"
+  brew update
 fi
 
 xecho_info "brew" "Setup brew path"
-PATH="$HOMEBREW_PATH:$PATH"
+if uname -a | grep -q arm; then
+  export PATH="/opt/homebrew/bin:$PATH"
+else
+  export PATH="/usr/local/bin:$PATH"
+fi
 
 xecho_info "brew" "Bundling formulaes & casks"
 brew bundle
+
+xecho_info "zsh" "Symlink p10k config"
+ln -s -i $(pwd)/p10k/p10k.zsh.symlink ~/.p10k.zsh
 
 xecho_info "zsh" "Symlink zshrc"
 ln -s -i $(pwd)/zsh/zshrc.symlink ~/.zshrc
 source ~/.zshrc
 
-xecho_info "zsh" "Symlink p10k config"
-ln -s -i $(pwd)/p10k/p10k.zsh.symlink ~/.p10k.zsh
-
 xecho_info "asdf" "Adding ASDF plugins"
 asdf plugin-add elixir
 asdf plugin-add erlang
+asdf plugin-add kubectl
 asdf plugin-add nodejs
 asdf plugin-add postgres
 asdf plugin-add redis
