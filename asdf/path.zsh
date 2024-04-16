@@ -1,1 +1,1 @@
-. $HOME/.asdf/asdf.sh
+export PATH="$HOME/.asdf/bin:$PATH"
