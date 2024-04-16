@@ -3,6 +3,7 @@ cask_args appdir: '/Applications'
 
 brew 'asdf'
 brew 'awscli'
+brew 'bash'
 brew 'foreman'
 brew 'fzf'
 brew 'git'
