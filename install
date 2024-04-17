@@ -68,7 +68,7 @@ ln -s -i $(pwd)/code/keybindings.json.symlink  ~/Library/Application\ Support/Co
 xecho_info "code" "Symlink settings.json"
 ln -s -i $(pwd)/code/settings.json.symlink  ~/Library/Application\ Support/Code/User/settings.json
 
-if [ $(command -v code) ]; then
+if ! [ $(command -v code) ]; then
   cat code/vscode-extensions.list | grep -v '^#' | xargs -L1 code --install-extension
   xecho_info "code" "Installing extensions"
 else
