@@ -4,7 +4,7 @@ source $ZSH/oh-my-zsh.sh
 
 plugins=(web-search)
 
-config_files=($HOME/dotfiles/**/*.zsh)
+config_files=($HOME/.dotfiles/**/*.zsh)
 
 for file in $config_files; do
   source $file

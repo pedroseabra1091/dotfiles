@@ -6,4 +6,14 @@
 
 - `Brewfile`: Blueprint that contains all the formulaes and casks I use daily;
 - `topic/*.zsh`: Files loaded by `.zshrc` during the execution of the `install` script;
-- `topic/*.symlink`: Files with `*.symlink` extension get symlinked into your `$HOME` after the `install` script is executed.This is the easiest way to have all the dotfiles version controlled while still keeping them loaded in your home directory;
+- `topic/*.symlink`: Files with `*.symlink` extension get symlinked into your `$HOME`.
+
+## Install
+
+```sh
+  git clone https://github.com/pedroseabra1091/dotfiles.git ~/.dotfiles
+  cd ~/.dotfiles
+  sh install
+```
+
+The `install` script symlinks the appropriate files to your home directory which makes everything controllable via `~/.dotfiles`.
