@@ -1,1 +1,1 @@
-export PATH="$HOME/.asdf/bin:$PATH"
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
