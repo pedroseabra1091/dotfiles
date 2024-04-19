@@ -4,6 +4,8 @@ source $ZSH/oh-my-zsh.sh
 
 plugins=(web-search)
 
+setopt autocd
+
 config_files=($HOME/.dotfiles/**/*.zsh)
 
 for file in $config_files; do
