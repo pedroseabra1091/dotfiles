@@ -55,9 +55,12 @@ asdf plugin-add postgres
 asdf plugin-add redis
 asdf plugin-add ruby
 
-xecho_info "asdf", "Symlink .tool-versions"
+xecho_info "asdf" "Symlink .tool-versions"
 ln -s -i $(pwd)/asdf/tool-versions.symlink ~/.tool-versions
 (cd ~/ && asdf install)
+
+xecho_info "asdf" "Symlink .asdf-postgres—configure-options"
+ln -s -i $(pwd)/asdf/asdf-postgres-configure-options.symlink ~/.asdf-postgres-configure-options
 
 xecho_info "git" "Symlink .gitconfig"
 ln -s -i $(pwd)/git/gitconfig.symlink ~/.gitconfig

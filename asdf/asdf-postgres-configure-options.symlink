@@ -1,0 +1,1 @@
+POSTGRES_EXTRA_CONFIGURE_OPTIONS="--with-uuid=e2fs --with-openssl --with-libraries=/opt/homebrew/lib:/opt/homebrew/opt/openssl@1.1/lib --with-includes=/opt/homebrew/include:/opt/homebrew/openssl@1.1/include"
