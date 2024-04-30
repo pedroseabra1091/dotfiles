@@ -81,5 +81,9 @@ else
   xecho_error "code" "Couldn't install extensions"
 fi
 
-xecho_info "karabiner" "Symlink karabiner.json"
-ln -s -i $(pwd)/karabiner/karabiner.json.symlink ~/.config/karabiner/karabiner.json
+if [ -d "~/.config/karabiner"]; then
+  xecho_info "karabiner" "Symlink karabiner.json"
+  ln -s -i $(pwd)/karabiner/karabiner.json.symlink ~/.config/karabiner/karabiner.json
+else
+  xecho_error "karabiner" "Couldn't symlink karabiner configuration – Repeat execution once access privileges are granted to Karabiner."
+fi
