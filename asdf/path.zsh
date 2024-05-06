@@ -3,3 +3,4 @@ if uname -a | grep -q arm; then
 else
   . /usr/local/opt/asdf/libexec/asdf.sh
 fi
+export PATH="~/.asdf/shims:$PATH"
