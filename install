@@ -23,7 +23,7 @@ function xecho_error {
 
 if ! [ $(command -v brew) ]; then
   xecho_info "install" "Installing brew"
-  su -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
   xecho_info "update" "Update brew"
   brew update
@@ -40,13 +40,16 @@ xecho_info "brew" "Bundling formulaes & casks"
 brew bundle install
 
 xecho_info "zsh" "Install oh-my-zsh"
-su -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 xecho_info "zsh" "Install p10k"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
 
 xecho_info "zsh" "Symlink p10k config"
 ln -s -i $(pwd)/p10k/p10k.zsh.symlink ~/.p10k.zsh
+
+xecho_info "zsh" "Switching shell to ZSH"
+exec zsh
 
 xecho_info "zsh" "Symlink zshrc"
 ln -s -i $(pwd)/zsh/zshrc.symlink ~/.zshrc
