@@ -2,6 +2,7 @@
 cask_args appdir: '/Applications'
 
 brew 'asdf'
+brew 'zsh-autosuggestions'
 brew 'awscli'
 brew 'bash'
 brew 'curl'
