@@ -1,6 +1,8 @@
 # Specify installation directory
 cask_args appdir: '/Applications'
 
+tap 'homebrew/cask-fonts'
+
 brew 'asdf'
 brew 'zsh-autosuggestions'
 brew 'awscli'
@@ -19,6 +21,7 @@ brew 'zsh'
 brew 'zoxide'
 
 cask 'firefox'
+cask 'font-hack-nerd-font'
 cask 'karabiner-elements'
 cask 'obsidian'
 cask 'notion'
