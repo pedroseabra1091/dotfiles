@@ -17,7 +17,6 @@ brew 'readline'
 brew 'openssl@3'
 brew 'ossp-uuid'
 brew 'zlib'
-brew 'zsh'
 brew 'zoxide'
 
 cask 'firefox'

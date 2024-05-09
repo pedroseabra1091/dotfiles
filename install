@@ -23,7 +23,7 @@ function xecho_error {
 
 if [ ! $(command -v brew) ]; then
   xecho_info "install" "Installing brew"
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
   xecho_info "update" "Update brew"
   brew update
@@ -41,7 +41,7 @@ brew bundle install
 
 if [ ! -d ~/.oh-my-zsh ]; then
   xecho_info "zsh" "Install oh-my-zsh"
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 if [ ! -d ~/.powerlevel10k ]; then
@@ -96,4 +96,5 @@ else
 fi
 
 xecho_info "macos" "Set dock"
-sh macos/set_dock.sh
+chmod +x macos/set_dock.sh
+sh -c macos/set_dock.sh
