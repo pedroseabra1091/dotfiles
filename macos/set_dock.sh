@@ -17,4 +17,6 @@ defaults write com.apple.dock persistent-apps -array \
     "$(dock_item /Applications/Obsidian.app)" \
     "$(dock_item /Applications/Notion.app)"
 
+defaults write com.apple.dock "autohide" -bool "true"
+
 killall Dock
