@@ -52,19 +52,6 @@ fi
 xecho_info "brew" "Bundling formulaes & casks"
 brew bundle install
 
-if [ ! -d ~/.oh-my-zsh ]; then
-  xecho_info "zsh" "Install oh-my-zsh"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-
-if [ ! -d ~/.powerlevel10k ]; then
-  xecho_info "zsh" "Install p10k"
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
-fi
-
-xecho_info "zsh" "Symlink p10k config"
-ln -s -i $(pwd)/p10k/p10k.zsh.symlink ~/.p10k.zsh
-
 xecho_info "zsh" "Symlink zshrc"
 ln -s -i $(pwd)/zsh/zshrc.symlink ~/.zshrc
 source ~/.zshrc
@@ -115,3 +102,16 @@ else
   chmod +x macos/set_dock.sh
   sh -c macos/set_dock.sh
 if
+
+if [ ! -d ~/.oh-my-zsh ]; then
+  xecho_info "zsh" "Install oh-my-zsh"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+if [ ! -d ~/.powerlevel10k ]; then
+  xecho_info "zsh" "Install p10k"
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
+fi
+
+xecho_info "zsh" "Symlink p10k config"
+ln -s -i $(pwd)/p10k/p10k.zsh.symlink ~/.p10k.zsh
