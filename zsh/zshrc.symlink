@@ -1,5 +1,30 @@
+export ZSH=$HOME/.oh-my-zsh
+
+# Surpresses the need to use cd when moving between directories
+setopt autocd
+
+# Allows install script execution to continue after oh-my-zsh installation.
+# Otherwise, the script would halt.
+setopt inc_append_history
+
+# Enable shared history among all ZSH sessions
+setopt share_history
+
+# Ignore duplicate commands in history
+setopt hist_ignore_all_dups
+
+# Remove blanks from history entries
+setopt hist_reduce_blanks
+
+# Do not save duplicate commands
+setopt hist_save_no_dups
+
+plugins=(web-search)
+
 config_files=($HOME/.dotfiles/**/*.zsh)
 
 for file in $config_files; do
   source $file
 done
+
+source $ZSH/oh-my-zsh.sh

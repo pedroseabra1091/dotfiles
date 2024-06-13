@@ -52,6 +52,11 @@ fi
 xecho_info "brew" "Bundling formulaes & casks"
 brew bundle install
 
+if [ ! -d ~/.oh-my-zsh ]; then
+  xecho_info "zsh" "Install oh-my-zsh"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
 if [ ! -d ~/.powerlevel10k ]; then
   xecho_info "zsh" "Install p10k"
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
@@ -83,18 +88,18 @@ ln -s -i $(pwd)/asdf/asdf-postgres-configure-options.symlink ~/.asdf-postgres-co
 xecho_info "git" "Symlink .gitconfig"
 ln -s -i $(pwd)/git/gitconfig.symlink ~/.gitconfig
 
-xecho_info "code" "Symlink keybindings.json"
-ln -s -i $(pwd)/code/keybindings.json.symlink  ~/Library/Application\ Support/Code/User/keybindings.json
-
-xecho_info "code" "Symlink settings.json"
-ln -s -i $(pwd)/code/settings.json.symlink  ~/Library/Application\ Support/Code/User/settings.json
-
 if [ -f "$BREW_PATH/code" ]; then
   cat code/vscode-extensions.list | grep -v '^#' | xargs -L1 "$BREW_PATH/code" --install-extension
   xecho_info "code" "Installing extensions"
 else
   xecho_error "code" "Couldn't install extensions"
 fi
+
+xecho_info "code" "Symlink keybindings.json"
+ln -s -i $(pwd)/code/keybindings.json.symlink  ~/Library/Application\ Support/Code/User/keybindings.json
+
+xecho_info "code" "Symlink settings.json"
+ln -s -i $(pwd)/code/settings.json.symlink  ~/Library/Application\ Support/Code/User/settings.json
 
 if [ -d "~/.config/karabiner" ]; then
   xecho_info "karabiner" "Symlink karabiner.json"
@@ -110,16 +115,3 @@ else
   chmod +x macos/set_dock.sh
   sh -c macos/set_dock.sh
 fi
-
-if [ ! -d ~/.oh-my-zsh ]; then
-  xecho_info "zsh" "Install oh-my-zsh"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-
-export ZSH=$HOME/.oh-my-zsh
-
-setopt autocd
-
-plugins=(web-search)
-
-source $ZSH/oh-my-zsh.sh

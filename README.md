@@ -26,6 +26,10 @@ Additionally, it fine tunes the macOS dock to my preferences.
 > [!WARNING]
 A few unicode characters aren't correctly displayed on iterm2. In order to fix it, set the default font to the pre-installed `Hack Nerd Font Mono`.
 
+> [!WARNING]
+Iterm2 default key preset switches a few viable key shortcuts (e.g: `cmd+backspace`).
+In order switch to a more familiar preset go to `Preferences`->`Profiles`->`Keys`, click on `Load Preset` and set to _Natural Text Editing_.
+
 ## Optional flags
 - `--skip-dock-setup`, `-s`: Skips the setup of the macOS dock
 
