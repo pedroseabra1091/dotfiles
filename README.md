@@ -33,3 +33,6 @@ In order switch to a more familiar preset go to `Preferences`->`Profiles`->`Keys
 ## Optional flags
 - `--skip-dock-setup`, `-s`: Skips the setup of the macOS dock
 
+## References
+
+- [Brew Bundle Brewfile Tips](https://gist.github.com/ChristopherA/a579274536aab36ea9966f301ff14f3f)
