@@ -43,8 +43,10 @@ fi
 xecho_info "brew" "Setup brew path"
 if uname -a | grep -q arm; then
   export PATH="/opt/homebrew/bin:$PATH"
+  export BREW_PATH="/opt/homebrew/bin"
 else
   export PATH="/usr/local/bin:$PATH"
+  export BREW_PATH="/usr/local/bin"
 fi
 
 xecho_info "brew" "Bundling formulaes & casks"
@@ -86,18 +88,18 @@ ln -s -i $(pwd)/asdf/asdf-postgres-configure-options.symlink ~/.asdf-postgres-co
 xecho_info "git" "Symlink .gitconfig"
 ln -s -i $(pwd)/git/gitconfig.symlink ~/.gitconfig
 
+if [ -f "$BREW_PATH/code" ]; then
+  cat code/vscode-extensions.list | grep -v '^#' | xargs -L1 "$BREW_PATH/code" --install-extension
+  xecho_info "code" "Installing extensions"
+else
+  xecho_error "code" "Couldn't install extensions"
+fi
+
 xecho_info "code" "Symlink keybindings.json"
 ln -s -i $(pwd)/code/keybindings.json.symlink  ~/Library/Application\ Support/Code/User/keybindings.json
 
 xecho_info "code" "Symlink settings.json"
 ln -s -i $(pwd)/code/settings.json.symlink  ~/Library/Application\ Support/Code/User/settings.json
-
-if [ $(command -v code) ]; then
-  cat code/vscode-extensions.list | grep -v '^#' | xargs -L1 code --install-extension
-  xecho_info "code" "Installing extensions"
-else
-  xecho_error "code" "Couldn't install extensions"
-fi
 
 if [ -d "~/.config/karabiner" ]; then
   xecho_info "karabiner" "Symlink karabiner.json"
@@ -112,4 +114,4 @@ else
   xecho_info "macos" "Set dock"
   chmod +x macos/set_dock.sh
   sh -c macos/set_dock.sh
-if
+fi
