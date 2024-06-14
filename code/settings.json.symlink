@@ -5,7 +5,8 @@
     "editor.tabSize": 2,
     "window.zoomLevel": 1,
     "workbench.colorCustomizations": {
-      "editorIndentGuide.activeBackground1": "#fff3cc"
+      "editorIndentGuide.activeBackground1": "#fff3cc",
+      "tab.selectedBorderTop": "#fff3c"
     },
     "workbench.colorTheme": "Material Theme Palenight",
 }
