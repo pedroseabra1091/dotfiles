@@ -7,6 +7,7 @@ dock_item() {
     printf '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>%s</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>', "$1"
 }
 
+# TODO: See if there's a way to add an identifier
 defaults write com.apple.dock persistent-apps -array \
     "$(dock_item /Applications/Firefox.app)" \
     "$(dock_item /Applications/Spark\ Desktop.app)" \
