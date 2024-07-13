@@ -192,5 +192,10 @@
   {
     "key": "ctrl+shift+n",
     "command": "workbench.files.action.createFolderFromExplorer"
+  },
+  {
+    "key": "cmd+k cmd+p",
+    "command": "copyRelativeFilePath",
+    "when": "editorFocus"
   }
 ]
