@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ -d ~/.warp/themes ]]; then
+  echo "Copying themes to warp themes folder"
+  cp $(pwd)/warp/*.yml ~/.warp/themes/
+else
+  echo "Couldn't locate warp themes folder."
+fi
