@@ -197,5 +197,9 @@
     "key": "cmd+k cmd+p",
     "command": "copyRelativeFilePath",
     "when": "editorFocus"
+  },
+  {
+    "key": "cmd+k f",
+    "command": "workbench.action.quickTextSearch"
   }
 ]
