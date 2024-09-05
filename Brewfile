@@ -21,6 +21,7 @@ brew 'zoxide'
 
 cask 'firefox'
 cask 'font-hack-nerd-font'
+cask 'godot'
 cask 'hiddenbar'
 cask 'iterm2'
 cask 'karabiner-elements'

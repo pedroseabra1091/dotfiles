@@ -116,6 +116,13 @@ else
   xecho_error "warp" "Couldn't locate warp themes folder."
 fi
 
+if [ -d ~/Library/Application\ Support/Godot/ ]; then
+  xecho_info "godot" "Symlink .dotfiles editor_settings-4.tres"
+  ln -s -i $(pwd)/godot/editor_settings-4.tres.symlink ~/Library/Application\ Support/Godot/editor_settings-4.tres
+else
+  xecho_info "godot" "Couldn't locate Godot installation directory"
+fi
+
 if [ "$skip_dock_setup" = true ]; then
   xecho_info "macos" "Skipping dock setup"
 else
