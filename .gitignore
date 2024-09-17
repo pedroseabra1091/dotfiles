@@ -1,1 +1,5 @@
+# OSX meta information file
 .DS_STORE
+
+# Auxiliary script to test changes to the `install` script
+test

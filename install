@@ -109,11 +109,13 @@ else
   xecho_error "karabiner" "Couldn't symlink karabiner configuration – Repeat execution once access privileges are granted to Karabiner."
 fi
 
-if [ -d ~/.warp/themes ]; then
+if [ -d ~/.warp/ ]; then
   xecho_info "warp", "Copying themes to warp themes folder"
   cp $(pwd)/warp/*.yml ~/.warp/themes/
+  xecho_info "warp", "Copying keybindings to warp folder"
+  ln -s -i $(pwd)/warp/keybindings.yaml.symlink ~/.warp/keybindings.yaml
 else
-  xecho_error "warp" "Couldn't locate warp themes folder."
+  xecho_error "warp" "Couldn't locate warp folder."
 fi
 
 if [ -d ~/Library/Application\ Support/Godot/ ]; then
