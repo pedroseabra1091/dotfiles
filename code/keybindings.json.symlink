@@ -137,19 +137,19 @@
     "command": "workbench.action.navigateEditorGroups"
   },
   {
-    "key": "ctrl+j",
+    "key": "cmd+shift+a",
     "command": "workbench.action.navigateLeft"
   },
   {
-    "key": "ctrl+l",
+    "key": "cmd+shift+d",
     "command": "workbench.action.navigateRight"
   },
   {
-    "key": "ctrl+i",
+    "key": "cmd+shift+w",
     "command": "workbench.action.navigateUp"
   },
   {
-    "key": "ctrl+k",
+    "key": "cmd+shift+s",
     "command": "workbench.action.navigateDown"
   },
   {
