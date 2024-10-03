@@ -96,11 +96,19 @@ else
   xecho_error "code" "Couldn't install extensions"
 fi
 
-xecho_info "code" "Symlink keybindings.json"
+xecho_info "code" "Symlink keybindings.json to main profile"
 ln -s -i $(pwd)/code/keybindings.json.symlink  ~/Library/Application\ Support/Code/User/keybindings.json
 
-xecho_info "code" "Symlink settings.json"
+xecho_info "code" "Symlink settings.json to main profile"
 ln -s -i $(pwd)/code/settings.json.symlink  ~/Library/Application\ Support/Code/User/settings.json
+
+xecho_info "code" "Symlink keybindings.json to secundary profiles"
+profiles=$(find ~/Library/Application\ Support/Code/User/profiles/ -mindepth 1 -maxdepth 1 -type d | awk -F 'profiles/' '{print $2}')
+
+while IFS= read -r profile; do
+  ln -s -f "$(pwd)/code/keybindings.json.symlink" "$HOME/Library/Application Support/Code/User/profiles/$profile/keybindings.json"
+  ln -s -f "$(pwd)/code/settings.json.symlink" "$HOME/Library/Application Support/Code/User/profiles/$profile/settings.json"
+done <<< "$profiles"
 
 if [ -d ~/.config/karabiner ]; then
   xecho_info "karabiner" "Symlink karabiner.json"
