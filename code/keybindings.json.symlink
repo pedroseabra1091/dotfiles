@@ -201,5 +201,10 @@
   {
     "key": "cmd+k f",
     "command": "workbench.action.quickTextSearch"
+  },
+  {
+    "key": "shift+cmd+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
   }
 ]
