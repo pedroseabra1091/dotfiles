@@ -86,6 +86,10 @@ ln -s -i $(pwd)/asdf/tool-versions.symlink ~/.tool-versions
 xecho_info "asdf" "Symlink .asdf-postgres—configure-options"
 ln -s -i $(pwd)/asdf/asdf-postgres-configure-options.symlink ~/.asdf-postgres-configure-options
 
+xecho_info "mise" "Symlink .tool-versions"
+ln -s -i $(pwd)/mise/tool-versions.symlink ~/.tool-versions
+(cd ~/ && mise install)
+
 xecho_info "git" "Symlink .gitconfig"
 ln -s -i $(pwd)/git/gitconfig.symlink ~/.gitconfig
 

@@ -18,6 +18,7 @@ brew 'openssl@3'
 brew 'ossp-uuid'
 brew 'zlib'
 brew 'zoxide'
+brew 'mise'
 
 cask 'firefox'
 cask 'font-hack-nerd-font'
