@@ -3,7 +3,6 @@ cask_args appdir: '/Applications'
 
 # tap 'homebrew/cask-fonts'
 
-brew 'asdf'
 brew 'zsh-autosuggestions'
 brew 'awscli'
 brew 'bash'

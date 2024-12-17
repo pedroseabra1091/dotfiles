@@ -70,22 +70,6 @@ xecho_info "zsh" "Symlink zshrc"
 ln -s -i $(pwd)/zsh/zshrc.symlink ~/.zshrc
 source ~/.zshrc
 
-xecho_info "asdf" "Adding ASDF plugins"
-asdf plugin-add elixir
-asdf plugin-add erlang
-asdf plugin-add kubectl
-asdf plugin-add nodejs
-asdf plugin-add postgres
-asdf plugin-add redis
-asdf plugin-add ruby
-
-xecho_info "asdf" "Symlink .tool-versions"
-ln -s -i $(pwd)/asdf/tool-versions.symlink ~/.tool-versions
-(cd ~/ && asdf install)
-
-xecho_info "asdf" "Symlink .asdf-postgres—configure-options"
-ln -s -i $(pwd)/asdf/asdf-postgres-configure-options.symlink ~/.asdf-postgres-configure-options
-
 xecho_info "mise" "Symlink .tool-versions"
 ln -s -i $(pwd)/mise/tool-versions.symlink ~/.tool-versions
 (cd ~/ && mise install)
