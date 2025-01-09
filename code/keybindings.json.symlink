@@ -211,5 +211,9 @@
     "key": "cmd+k cmd+i",
     "command": "editor.action.showHover",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "workbench.action.toggleAuxiliaryBar"
   }
 ]
