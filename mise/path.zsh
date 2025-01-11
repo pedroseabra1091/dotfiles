@@ -1,1 +1,1 @@
-/opt/homebrew/bin/mise activate zsh
+eval "$(/opt/homebrew/bin/mise activate zsh)"
