@@ -8,6 +8,7 @@
 - `topic/*.zsh`: Files loaded by `.zshrc` during the execution of the `install` script;
 - `topic/*.symlink`: Files with `*.symlink` extension get symlinked into your `$HOME`;
 - `topic/*.yml`: Files copied to target locations during the execution of the `install` script;
+- `rules-for-ai`: Project agnostic AI rules.
 
 ## Install
 
