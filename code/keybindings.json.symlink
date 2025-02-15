@@ -145,10 +145,6 @@
     "command": "workbench.action.navigateRight"
   },
   {
-    "key": "cmd+shift+w",
-    "command": "workbench.action.navigateUp"
-  },
-  {
     "key": "cmd+shift+s",
     "command": "workbench.action.navigateDown"
   },
