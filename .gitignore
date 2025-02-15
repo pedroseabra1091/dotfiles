@@ -3,3 +3,6 @@
 
 # Auxiliary script to test changes to the `install` script
 test
+
+# ADM Deemaze specific configuration folder
+adm
