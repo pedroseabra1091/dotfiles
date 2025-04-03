@@ -18,4 +18,4 @@
         last           = ! git log -1 --stat
         last-hash      = ! git log -1 --stat | grep commit | cut -d ' ' -f2
         open-pr        = ! git rev-parse --abbrev-ref HEAD | xargs gh pr view --web
-        current-branch = ! git branch | grep '*' | cut -d ' ' -f2
+        active-branch  = ! git rev-parse --abbrev-ref HEAD
