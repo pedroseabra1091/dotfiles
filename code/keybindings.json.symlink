@@ -257,5 +257,9 @@
     "key": "f12",
     "command": "-editor.action.revealDefinition",
     "when": "editorHasDefinitionProvider && editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+r",
+    "command": "workbench.view.extension.sidebar-panel"
   }
 ]
