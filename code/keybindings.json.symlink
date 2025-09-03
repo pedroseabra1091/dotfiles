@@ -261,5 +261,13 @@
   {
     "key": "shift+cmd+r",
     "command": "workbench.view.extension.sidebar-panel"
+  },
+  {
+    "key": "cmd+e",
+    "command": "composerMode.background"
+  },
+  {
+    "key": "shift+cmd+x",
+    "command": "workbench.view.extensions",
   }
 ]
