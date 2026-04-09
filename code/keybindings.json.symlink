@@ -261,7 +261,13 @@
   },
   {
     "key": "cmd+k cmd+h",
-    "command": "composer.showComposerHistory"
+    "command": "composer.showComposerHistoryEditor",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+k cmd+h",
+    "command": "composer.showComposerHistory",
+    "when": "!editorTextFocus"
   },
   {
     "key": "cmd+k cmd+d",
