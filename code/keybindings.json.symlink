@@ -263,11 +263,12 @@
     "command": "workbench.view.extension.sidebar-panel"
   },
   {
-    "key": "cmd+e",
-    "command": "composerMode.background"
-  },
-  {
     "key": "shift+cmd+x",
     "command": "workbench.view.extensions",
+  },
+  {
+    "key": "cmd+shift+s",
+    "command": "workbench.action.toggleUnifiedSidebarFromKeyboard",
+    "when": "!isAuxiliaryWindowFocusedContext"
   }
 ]
