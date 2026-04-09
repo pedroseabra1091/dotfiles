@@ -15,7 +15,7 @@
 ```sh
   git clone https://github.com/pedroseabra1091/dotfiles.git ~/.dotfiles
   cd ~/.dotfiles
-  sh install
+  ./setup.sh
 ```
 
 The `install` script symlinks the appropriate files to your home directory which makes everything controllable via `~/.dotfiles`.
