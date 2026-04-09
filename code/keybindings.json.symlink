@@ -145,6 +145,21 @@
     "command": "workbench.action.navigateRight"
   },
   {
+    "key": "cmd+shift+a",
+    "command": "workbench.action.focusFirstEditorGroup",
+    "when": "composerFocused"
+  },
+  {
+    "key": "cmd+shift+d",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "sideBarFocus"
+  },
+  {
+    "key": "cmd+shift+d",
+    "command": "composer.focusComposer",
+    "when": "editorTextFocus"
+  },
+  {
     "key": "cmd+shift+s",
     "command": "workbench.action.navigateDown"
   },
