@@ -16,10 +16,6 @@
     "command": "-workbench.action.toggleZenMode"
   },
   {
-    "key": "cmd+t",
-    "command": "terminal.open"
-  },
-  {
     "key": "ctrl+alt+o",
     "command": "-terminal.open"
   },
@@ -289,8 +285,33 @@
   },
   {
     "key": "cmd+shift+s",
-    "command": "workbench.action.toggleUnifiedSidebarFromKeyboard",
-    "when": "!isAuxiliaryWindowFocusedContext"
+    "command": "workbench.view.scm",
+    "when": "workbench.scm.active"
+  },
+  {
+    "key": "cmd+shift+g",
+    "command": "workbench.view.extension.github-pull-requests",
+  },
+  {
+    "key": "shift+cmd+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminal."
+  },
+  {
+    "key": "cmd+k cmd+up",
+    "command": "workbench.action.focusAboveGroup"
+  },
+  {
+    "key": "cmd+r cmd+up",
+    "command": "-workbench.action.focusAboveGroup"
+  },
+  {
+    "key": "cmd+k cmd+down",
+    "command": "workbench.action.focusBelowGroup"
+  },
+  {
+    "key": "cmd+r cmd+down",
+    "command": "-workbench.action.focusBelowGroup"
   },
   {
     "key": "shift+cmd+t",
