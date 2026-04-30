@@ -322,5 +322,19 @@
     "key": "ctrl+shift+[BracketRight]",
     "command": "-workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
+  },
+  {
+    "key": "shift+cmd+m",
+    "command": "cursor.openOrFocusGlassWindow"
+  },
+  {
+    "key": "shift+cmd+m",
+    "command": "-workbench.actions.view.problems",
+    "when": "workbench.panel.markers.view.active"
+  },
+  {
+    "key": "shift+cmd+m",
+    "command": "-glass.toggleExpandedAgent",
+    "when": "isGlassAgentWorkspace"
   }
 ]
