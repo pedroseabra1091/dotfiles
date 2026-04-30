@@ -1,12 +1,13 @@
 ---
-"pane_group:add_right": "cmd-\\"
-"workspace:toggle_left_panel": none
 "workspace:toggle_warp_drive": cmd-b
 "workspace:shift_focus_right": shift-cmd-D
-"input:toggle_workflows": shift-cmd-R
-"pane_group:add_down": shift-cmd-|
-"pane_group:navigate_left": shift-cmd-A
-"workspace:toggle_conversation_list_view": none
-"pane_group:navigate_right": shift-cmd-D
 "workspace:shift_focus_left": shift-cmd-A
+"terminal:bookmark_selected_block": none
+"pane_group:add_right": "cmd-\\"
+"workspace:toggle_left_panel": none
+"workspace:toggle_conversation_list_view": none
 "workspace:left_panel_agent_conversations": shift-cmd-B
+"input:toggle_workflows": shift-cmd-R
+"pane_group:navigate_right": shift-cmd-D
+"pane_group:navigate_left": shift-cmd-A
+"pane_group:add_down": shift-cmd-|
