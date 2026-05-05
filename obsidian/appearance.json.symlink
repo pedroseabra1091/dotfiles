@@ -1,0 +1,12 @@
+{
+  "accentColor": "",
+  "theme": "obsidian",
+  "cssTheme": "Mado Miniflow",
+  "enabledCssSnippets": [
+    "obsidian",
+    "Primary"
+  ],
+  "interfaceFontFamily": "",
+  "baseFontSize": 17,
+  "showRibbon": false
+}

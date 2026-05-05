@@ -1,7 +1,7 @@
-ruby 3.2.2
-erlang 26.0.2
-elixir 1.17.2
-nodejs 20.9.0
+ruby     3.4.2
+erlang   26.0.2
+elixir   1.17.2
+nodejs   20.9.0
 postgres 15.7
-kubectl 1.25.13
-redis 7.2.3
+kubectl  1.25.13
+redis    8.6.2

@@ -1,0 +1,29 @@
+.mermaid svg {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+div:has(> .mermaid):hover {
+  width: auto !important;
+}
+
+.mermaid svg .cluster rect {
+  fill: #dadada !important;
+}
+
+.mermaid:hover {
+  overflow: scroll;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.mermaid:hover svg {
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
