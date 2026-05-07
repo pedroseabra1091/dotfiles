@@ -1,14 +1,13 @@
-## Dotfiles
+# Dotfiles
 
-![dotfiles-banner](dotfiles-banner.png)
+Tool configuration is scattered by default — each application owns its own directory. These dotfiles pull everything into a single versioned repository and symlink it back into place. Changes are reflected immediately, and provisioning a new machine is a `git clone` and `./setup.sh`.
 
-## Subdirectories explained
+## Conventions
 
-- `Brewfile`: Blueprint that contains all the formulaes and casks I use daily;
 - `topic/*.zsh`: Files loaded by `.zshrc` during the execution of the `install` script;
 - `topic/*.symlink`: Files with `*.symlink` extension get symlinked to their respective application configuration locations;
 - `topic/*.yml`: Files copied to target locations during the execution of the `install` script;
-- `rules-for-ai`: Project agnostic AI rules.
+- `topic/setup.sh`: Topic-scoped setup scripts that can be run independently;
 
 ## Install
 
