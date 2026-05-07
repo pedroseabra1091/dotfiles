@@ -134,16 +134,18 @@
   },
   {
     "key": "cmd+shift+a",
-    "command": "workbench.action.navigateLeft"
+    "command": "workbench.action.navigateLeft",
+    "when": "editorTextFocus"
   },
   {
     "key": "cmd+shift+d",
-    "command": "workbench.action.navigateRight"
+    "command": "workbench.action.navigateRight",
+    "when": "editorTextFocus"
   },
   {
     "key": "cmd+shift+a",
     "command": "workbench.action.focusFirstEditorGroup",
-    "when": "composerFocused"
+    "when": "!editorTextFocus && !terminalFocus"
   },
   {
     "key": "cmd+shift+d",
@@ -152,7 +154,7 @@
   },
   {
     "key": "cmd+shift+d",
-    "command": "composer.focusComposer",
+    "command": "workbench.action.focusAuxiliaryBar",
     "when": "editorTextFocus"
   },
   {

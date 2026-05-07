@@ -6,7 +6,7 @@
 
 - `Brewfile`: Blueprint that contains all the formulaes and casks I use daily;
 - `topic/*.zsh`: Files loaded by `.zshrc` during the execution of the `install` script;
-- `topic/*.symlink`: Files with `*.symlink` extension get symlinked into your `$HOME`;
+- `topic/*.symlink`: Files with `*.symlink` extension get symlinked to their respective application configuration locations;
 - `topic/*.yml`: Files copied to target locations during the execution of the `install` script;
 - `rules-for-ai`: Project agnostic AI rules.
 
@@ -32,8 +32,18 @@ A few unicode characters aren't correctly displayed on iterm2. In order to fix i
 Iterm2 default key preset switches a few viable key shortcuts (e.g: `cmd+backspace`).
 In order switch to a more familiar preset go to `Preferences`->`Profiles`->`Keys`, click on `Load Preset` and set to _Natural Text Editing_.
 
+### Obsidian
+
+Obsidian configuration can also be set up independently via its own setup script:
+
+```sh
+./obsidian/setup.sh --vault ~/path/to/your/vault
+```
+
 ## Optional flags
 - `--skip-dock-setup`, `-s`: Skips the setup of the macOS dock
+- `--vault <path>`, `-v`: Path to an Obsidian vault — when provided, symlinks Obsidian config files into `<vault>/.obsidian/`
+
 
 ## References
 

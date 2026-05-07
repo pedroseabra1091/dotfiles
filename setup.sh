@@ -1,32 +1,15 @@
 #!/usr/bin/env bash
 
-BLUE='\033[1;34m'
-GREEN='\033[1;32m'
-RED='\033[0;31m'
-RESET='\033[0m'
-
-function xecho {
-  echo "\n$1[$2]: $3"
-}
-
-function xecho_info {
-  xecho "$BLUE" "$1" "$2"
-}
-
-function xecho_success {
-  xecho "$GREEN" "$1" "$2"
-}
-
-function xecho_error {
-  xecho "$RED" "$1" "$2"
-}
+source "$(dirname "$0")/lib/helpers.sh"
 
 # Optional flags
 skip_dock_setup=false
+vault_path=""
 
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         --skip-dock-setup | -s) skip_dock_setup=true ;;
+        --vault | -v) vault_path="$2"; shift ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
     shift
@@ -118,6 +101,10 @@ if [ -d ~/Library/Application\ Support/Godot/ ]; then
   ln -s -i $(pwd)/godot/editor_settings-4.tres.symlink ~/Library/Application\ Support/Godot/editor_settings-4.tres
 else
   xecho_info "godot" "Couldn't locate Godot installation directory"
+fi
+
+if [[ -n "$vault_path" ]]; then
+  sh "$(dirname "$0")/obsidian/setup.sh" --vault "$vault_path"
 fi
 
 if [ "$skip_dock_setup" = true ]; then
