@@ -9,4 +9,5 @@
       "tab.selectedBorderTop": "#fff3c"
     },
     "workbench.colorTheme": "Material Theme Palenight",
+    "workbench.activityBar.orientation": "vertical"
 }
