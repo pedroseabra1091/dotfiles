@@ -31,6 +31,14 @@ A few unicode characters aren't correctly displayed on iterm2. In order to fix i
 Iterm2 default key preset switches a few viable key shortcuts (e.g: `cmd+backspace`).
 In order switch to a more familiar preset go to `Preferences`->`Profiles`->`Keys`, click on `Load Preset` and set to _Natural Text Editing_.
 
+### Claude
+
+Claude Code is installed (via the official installer) and its preferences symlinked into `~/.claude/` as part of `./setup.sh`. It can also be run independently:
+
+```sh
+./claude/setup.sh
+```
+
 ### Obsidian
 
 Obsidian configuration can also be set up independently via its own setup script:

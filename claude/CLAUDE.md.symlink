@@ -1,0 +1,3 @@
+## Git Workflow
+- NEVER push commits unless explicitly asked. Default to commit-only.
+- Always present a plan before exploring or editing files for non-trivial tasks; wait for approval.

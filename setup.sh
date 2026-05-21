@@ -103,6 +103,9 @@ else
   xecho_info "godot" "Couldn't locate Godot installation directory"
 fi
 
+xecho_info "claude" "Set up Claude Code"
+sh "$(dirname "$0")/claude/setup.sh"
+
 if [[ -n "$vault_path" ]]; then
   sh "$(dirname "$0")/obsidian/setup.sh" --vault "$vault_path"
 fi

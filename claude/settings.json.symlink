@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(/Users/pedrobatista/.claude/skills/**)"
+    ]
+  },
+  "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/pedrobatista/.claude/statusline-command.sh"
+  },
+  "syntaxHighlightingDisabled": false,
+  "theme": "dark-ansi"
+}
