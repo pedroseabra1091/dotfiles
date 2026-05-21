@@ -6,6 +6,9 @@ plugins=(web-search)
 
 setopt autocd
 
+export EDITOR="cursor --wait"
+export VISUAL="cursor --wait"
+
 config_files=($HOME/.dotfiles/**/*.zsh)
 
 for file in $config_files; do
