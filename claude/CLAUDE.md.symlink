@@ -1,3 +1,6 @@
+## Editing
+- Never apply edits automatically. Always surface the proposed change as a diff or instructions and wait for me to apply it manually.
+
 ## Git Workflow
 - NEVER push commits unless explicitly asked. Default to commit-only.
 - Always present a plan before exploring or editing files for non-trivial tasks; wait for approval.
