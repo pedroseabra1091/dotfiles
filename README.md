@@ -1,6 +1,6 @@
 # Dotfiles
 
-Tool configuration is scattered by default — each application owns its own directory. These dotfiles pull everything into a single versioned repository and symlink it back into place. Changes are reflected immediately, and provisioning a new machine is a `git clone` and `./setup.sh`.
+Tool configuration is scattered by default — each application owns its own directory. These dotfiles pull everything into a single versioned repository and symlink it back into place. Changes are reflected immediately, and provisioning a new machine is a `git clone` and `sh setup.sh`.
 
 ## Conventions
 
@@ -14,7 +14,7 @@ Tool configuration is scattered by default — each application owns its own dir
 ```sh
   git clone https://github.com/pedroseabra1091/dotfiles.git ~/.dotfiles
   cd ~/.dotfiles
-  ./setup.sh
+  sh setup.sh
 ```
 
 The `install` script symlinks the appropriate files to your home directory which makes everything controllable via `~/.dotfiles`.
@@ -36,7 +36,7 @@ In order switch to a more familiar preset go to `Preferences`->`Profiles`->`Keys
 Claude Code is installed (via the official installer) and its preferences symlinked into `~/.claude/` as part of `./setup.sh`. It can also be run independently:
 
 ```sh
-./claude/setup.sh
+sh claude/setup.sh
 ```
 
 ### Obsidian
@@ -44,7 +44,7 @@ Claude Code is installed (via the official installer) and its preferences symlin
 Obsidian configuration can also be set up independently via its own setup script:
 
 ```sh
-./obsidian/setup.sh --vault ~/path/to/your/vault
+sh obsidian/setup.sh --vault ~/path/to/your/vault
 ```
 
 ## Optional flags
