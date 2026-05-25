@@ -291,10 +291,6 @@
     "when": "workbench.scm.active"
   },
   {
-    "key": "cmd+shift+g",
-    "command": "workbench.view.extension.github-pull-requests",
-  },
-  {
     "key": "shift+cmd+t",
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminal."
@@ -338,5 +334,9 @@
     "key": "shift+cmd+m",
     "command": "-glass.toggleExpandedAgent",
     "when": "isGlassAgentWorkspace"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "workbench.view.extension.github-pull-request"
   }
 ]
