@@ -9,12 +9,16 @@ else
   xecho_info "claude" "Claude Code already installed"
 fi
 
-dotfiles_dir="$(cd "$(dirname "$0")/.." && pwd)"
+xecho_info "claude" "$(pwd)/CLAUDE.md.symlink to ~/.claude/"
+ln -s -i $(pwd)/CLAUDE.md.symlink ~/.claude/CLAUDE.md
 
-find "$dotfiles_dir/claude" -name '*.symlink' | while read -r src; do
-  dest="$HOME/.claude/${src#$dotfiles_dir/claude/}"
-  dest="${dest%.symlink}"
-  mkdir -p "$(dirname "$dest")"
-  xecho_info "claude" "Symlink ${dest#$HOME/.claude/}"
-  ln -s -i "$src" "$dest"
+xecho_info "claude" "$(pwd)/settings.json.symlink to ~/.claude/"
+ln -s -i $(pwd)/settings.json.symlink ~/.claude/settings.json
+
+for skill in "$(pwd)/skills"/*.symlink; do
+  [ -e "$skill" ] || continue
+  skill_name="$(basename "$skill" .symlink)"
+  dest="$HOME/.claude/skills/$skill_name"
+  xecho_info "claude" "Symlink $skill to $dest"
+  ln -shf "$skill" "$dest"
 done
