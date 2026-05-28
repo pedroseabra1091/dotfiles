@@ -60,25 +60,8 @@ ln -s -i $(pwd)/mise/tool-versions.symlink ~/.tool-versions
 xecho_info "git" "Symlink .gitconfig"
 ln -s -i $(pwd)/git/gitconfig.symlink ~/.gitconfig
 
-if [ -f "$BREW_PATH/code" ]; then
-  cat code/vscode-extensions.list | grep -v '^#' | xargs -L1 "$BREW_PATH/code" --install-extension
-  xecho_info "code" "Installing extensions"
-else
-  xecho_error "code" "Couldn't install extensions"
-fi
-
-xecho_info "code" "Symlink keybindings.json to main profile"
-ln -s -i $(pwd)/code/keybindings.json.symlink  ~/Library/Application\ Support/Code/User/keybindings.json
-
-xecho_info "code" "Symlink settings.json to main profile"
-ln -s -i $(pwd)/code/settings.json.symlink  ~/Library/Application\ Support/Code/User/settings.json
-
-xecho_info "code" "Symlink keybindings.json to secundary profiles"
-profiles=$(find ~/Library/Application\ Support/Code/User/profiles/ -mindepth 1 -maxdepth 1 -type d | awk -F 'profiles/' '{print $2}')
-while IFS= read -r profile; do
-  ln -s -f "$(pwd)/code/keybindings.json.symlink" "$HOME/Library/Application Support/Code/User/profiles/$profile/keybindings.json"
-  ln -s -f "$(pwd)/code/settings.json.symlink" "$HOME/Library/Application Support/Code/User/profiles/$profile/settings.json"
-done <<< "$profiles"
+xecho_info "cursor" "Set up Cursor"
+sh "$(dirname "$0")/cursor/setup.sh"
 
 if [ -d ~/.config/karabiner ]; then
   xecho_info "karabiner" "Symlink karabiner.json"
@@ -107,6 +90,7 @@ xecho_info "claude" "Set up Claude Code"
 sh "$(dirname "$0")/claude/setup.sh"
 
 if [[ -n "$vault_path" ]]; then
+  xecho_info "obsidian" "Set up Obsidian"
   sh "$(dirname "$0")/obsidian/setup.sh" --vault "$vault_path"
 fi
 
