@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Read(/Users/pedrobatista/.claude/skills/**)"
+      "Read(/Users/pedrobatista/.claude/skills/**)",
+      "Bash(git diff:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr diff:*)"
     ]
   },
   "model": "opus",

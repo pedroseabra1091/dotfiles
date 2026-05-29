@@ -1,5 +1,9 @@
+## Output style
+- No narration. State results, don't explain what you're about to do.
+- Skip step-by-step breakdowns unless asked
+
 ## Editing
-- Never apply edits automatically. Always surface the proposed change as a diff or instructions and wait for me to apply it manually.
+- Never apply edits automatically. Always show the proposed diff and ask if you can proceed with the change
 
 ## Git Workflow
 - Always ask before pushing commits
