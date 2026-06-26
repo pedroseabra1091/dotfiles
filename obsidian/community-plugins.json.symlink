@@ -1,5 +1,7 @@
 [
   "cm-editor-syntax-highlight-obsidian",
   "restore-tab-key",
-  "obsidian-style-settings"
+  "obsidian-style-settings",
+  "obsidian-icon-shortcodes",
+  "gdscript-syntax-highlighting"
 ]
