@@ -8,7 +8,7 @@ Drive a phased PR review by walking the diff one file at a time and delegating e
 ## Operating rules
 
 - Do not narrate internal workflow or phases to the user. Progress and methodology stay implicit.
-- Use a cheap model (Haiku) for ancillary operations (marking files as viewed, etc.). The actual file review must use the most capable model available (Opus) with effort set to high, unless the user specifies otherwise.
+- The walk must run on a capable model (Opus) with effort set to high, unless the user specifies otherwise, since the orchestrator performs the reviews itself and accumulates cross-file context. Ancillary operations (marking files as viewed, etc.) are delegated to a cheap model (Haiku).
 
 ## 1. Resolve scope from the PR
 
@@ -29,7 +29,7 @@ Print the ordered list of changed files with a counter, e.g. `7 files to review`
 For each file, in order:
 
 1. Print a header: `Reviewing N/total: <path>`.
-2. Run the review in a foreground subagent so it executes at full capability. Use the Agent tool with `subagent_type: general-purpose` and `model: opus`. The prompt should instruct the subagent to invoke the `pr-review` skill scoped to **only this file's diff** (`git diff origin/<baseRefName>...HEAD -- <path>`), apply maximum effort, and return findings verbatim. Do not invoke `pr-review` directly from the orchestrator.
+2. Review the file directly in the orchestrator — do **not** delegate to a subagent. Invoke the `pr-review` skill scoped to this file's diff (`git diff origin/<baseRefName>...HEAD -- <path>`) at maximum effort. Reviewing in the orchestrator's own context is deliberate: knowledge accumulates as the walk progresses, so later files are reviewed with awareness of signatures, abstractions, and patterns introduced in earlier ones. Carry that prior-file context forward when it bears on the current file.
 3. Surface `pr-review`'s findings verbatim under that file's header. If pr-review returns nothing actionable, say so and move on — do not fabricate findings.
 4. Pause and wait for the user. Accept at least:
    - `next` — spawn a **background** subagent to mark this file as Viewed on GitHub, then advance immediately without waiting on the result. Use the Agent tool with `subagent_type: general-purpose`, `model: haiku`, and `run_in_background: true`. The subagent runs:
