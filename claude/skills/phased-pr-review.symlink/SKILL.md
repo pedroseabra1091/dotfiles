@@ -16,7 +16,7 @@ Run `gh pr view --json baseRefName,headRefName,number,url,id` with no args — t
 
 If `gh` reports no PR for the current branch, ask the user whether to (a) supply a PR reference / number to read instead, or (b) abort. Do not silently fall back to a guessed base.
 
-Once the base is known, list changed files with `git diff --name-only origin/<baseRefName>...HEAD`. If the list is empty, stop and tell the user there's nothing to review.
+Once the base is known, list changed files in the PR's **native GitHub order** (the same order shown in the Files tab) via `gh api repos/<owner>/<repo>/pulls/<number>/files --paginate --jq '.[].filename'`. Do **not** use `git diff --name-only`, which sorts alphabetically and produces a confusingly different order from the PR page. Walk files in this exact order. If the list is empty, stop and tell the user there's nothing to review. (Still fetch each file's diff content with `git diff origin/<baseRefName>...HEAD -- <path>` during the per-file loop.)
 
 If the working tree is dirty, mention it once up front; continue to diff against the committed state unless the user asks otherwise.
 
@@ -26,7 +26,7 @@ Print the ordered list of changed files with a counter, e.g. `7 files to review`
 
 ## 3. Per-file loop
 
-For each file, in order:
+For each file, in the PR's native GitHub order established in step 1:
 
 1. Print a header: `Reviewing N/total: <path>`.
 2. Review the file directly in the orchestrator — do **not** delegate to a subagent. Invoke the `pr-review` skill scoped to this file's diff (`git diff origin/<baseRefName>...HEAD -- <path>`) at maximum effort. Reviewing in the orchestrator's own context is deliberate: knowledge accumulates as the walk progresses, so later files are reviewed with awareness of signatures, abstractions, and patterns introduced in earlier ones. Carry that prior-file context forward when it bears on the current file.
@@ -39,9 +39,7 @@ For each file, in order:
        -F prId="<pr id from step 1>" \
        -F path="<file path>"
      ```
-     The orchestrator does not block on this call. If the subagent later reports a failure (e.g. permissions, gh not authed), surface it to the user but do not rewind.
-   - `skip` — advance without recording findings for this file.
-   - `done` — end the loop early and go to the rollup.
+     The orchestrator does not block on this call and treats it as fire-and-forget: never surface its outcome, success or failure, to the user, and never let it interrupt or rewind the foreground walk. This is a best-effort side effect only.
    - Free-form questions or requests scoped to the current file.
    Do **not** advance automatically.
 
@@ -49,4 +47,4 @@ Never batch multiple files into one `pr-review` invocation. Never modify code du
 
 ## 4. Final rollup
 
-Once the loop ends (naturally or via `done`), print a compact summary: per file → top findings, plus any files the user skipped. Keep it short; the per-file detail was already shown live.
+Once every file has been reviewed, print a compact summary: per file → top findings. Keep it short; the per-file detail was already shown live.
