@@ -138,8 +138,9 @@
 
   },
   {
-    "key": "cmd+shift+d",
-    "command": "workbench.action.navigateRight"
+    "key": "cmd+shift+a",
+    "command": "workbench.action.focusSideBar",
+    "when": "editorTextFocus"
 
   },
   {
@@ -149,8 +150,11 @@
   },
   {
     "key": "cmd+shift+d",
-    "command": "workbench.action.focusActiveEditorGroup",
-    "when": "sideBarFocus"
+    "command": "workbench.action.navigateRight"
+  },
+  {
+    "key": "cmd+shift+d",
+    "command": "workbench.action.focusFirstEditorGroup"
   },
   {
     "key": "cmd+shift+d",
@@ -258,16 +262,6 @@
     "when": "inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'editor' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'inline' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'quick' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'view' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'editor' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'inline' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'quick' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'view'"
   },
   {
-    "key": "cmd+k cmd+h",
-    "command": "composer.showComposerHistoryEditor",
-    "when": "editorTextFocus"
-  },
-  {
-    "key": "cmd+k cmd+h",
-    "command": "composer.showComposerHistory",
-    "when": "!editorTextFocus"
-  },
-  {
     "key": "cmd+k cmd+d",
     "command": "editor.action.revealDefinition",
     "when": "editorHasDefinitionProvider && editorTextFocus"
@@ -293,7 +287,7 @@
   {
     "key": "shift+cmd+t",
     "command": "workbench.action.terminal.toggleTerminal",
-    "when": "terminal."
+    "when": "terminal.active"
   },
   {
     "key": "cmd+k cmd+up",
@@ -338,5 +332,63 @@
   {
     "key": "shift+cmd+g",
     "command": "workbench.view.extension.github-pull-request"
-  }
+  },
+  {
+    "key": "cmd+m",
+    "command": "composer.openModelToggle",
+    "when: "composerFocused && !editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+7",
+    "command": "-composer.openModelToggle",
+    "when": "composerFocused && !editorTextFocus"
+  },
+  {
+    "key": "cmd+e",
+    "command": "composer.cycleModelParameter",
+    "when": "composerFocused && !editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+[Minus]",
+    "command": "-composer.cycleModelParameter",
+    "when": "composerFocused && !editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+r",
+    "command": "-composer.renameChat",
+    "when": "composerFocused && !editorTextFocus"
+  },
+  {
+    "key": "alt+cmd+[Minus]",
+    "command": "-composer.showComposerHistory
+  },
+  {
+    "key": "cmd+m",
+    "command": "-markdown.extension.editing.toggleMath",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+  },
+  {
+    "key": "cmd+e",
+    "command": "-cursor.toggleAgentWindowIDEUnification",
+    "when": "!isGlass && workbenchState != 'empty'"
+  },
+  {
+    "key": "cmd+e",
+    "command": "-actions.findWithSelection",
+  },
+  {
+    "key": "cmd+e",
+    "command": "-thunder-client.change-env",
+    "when": "activeWebviewPanelId == 'tc.env-view' || activeWebviewPanelId == 'tc.runcol-view'"
+  },
+  {
+    "key": "cmd+e",
+    "command": "-editor.action.toggleScreenReaderAccessibilityMode",
+    "when": "accessibilityHelpIsShown"
+  },
+  {
+    "key": "cmd+h",
+    "command": "composer.showComposerHistoryEditor",
+    "when": "!cursor.agentIdeUnification.unifiedSidebarVisible && resourceScheme == 'cursor.composer'"
+  },
 ]
