@@ -138,9 +138,8 @@
 
   },
   {
-    "key": "cmd+shift+a",
-    "command": "workbench.action.focusSideBar",
-    "when": "editorTextFocus"
+    "key": "cmd+shift+d",
+    "command": "workbench.action.navigateRight"
 
   },
   {
@@ -150,16 +149,13 @@
   },
   {
     "key": "cmd+shift+d",
-    "command": "workbench.action.navigateRight"
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "sideBarFocus"
   },
   {
     "key": "cmd+shift+d",
-    "command": "workbench.action.focusFirstEditorGroup"
-  },
-  {
-    "key": "cmd+shift+d",
-    "command": "composer.focusComposer",
-    "when": "editorTextFocus"
+    "command": "claude-vscode.blur",
+    "when": "!config.claudeCode.useTerminal && !editorTextFocus"
   },
   {
     "key": "cmd+shift+s",
@@ -183,11 +179,6 @@
     "key": "ctrl+j",
     "command": "-editor.action.joinLines",
     "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "shift+cmd+g",
-    "command": "workbench.view.scm",
-    "when": "workbench.scm.active"
   },
   {
     "key": "ctrl+shift+g",
@@ -226,26 +217,12 @@
     "when": "editorTextFocus"
   },
   {
-    "key": "shift+cmd+b",
-    "command": "workbench.action.toggleAuxiliaryBar"
-  },
-  {
     "key": "cmd+g",
     "command": "workbench.action.gotoLine"
   },
   {
     "key": "ctrl+g",
     "command": "-workbench.action.gotoLine"
-  },
-  {
-    "key": "shift+cmd+k",
-    "command": "aipopup.action.modal.generate",
-    "when": "editorFocus && !composerBarIsVisible"
-  },
-  {
-    "key": "cmd+k",
-    "command": "-aipopup.action.modal.generate",
-    "when": "editorFocus && !composerBarIsVisible"
   },
   {
     "key": "cmd+i",
@@ -260,6 +237,11 @@
     "key": "cmd+i",
     "command": "-workbench.action.chat.stopListeningAndSubmit",
     "when": "inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'editor' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'inline' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'quick' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'view' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'editor' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'inline' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'quick' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'view'"
+  },
+  {
+    "key": "cmd+k cmd+h",
+    "command": "claude-vscode.reopenClosedSession",
+    "when": "claude-vscode.lastClosedWasSession"
   },
   {
     "key": "cmd+k cmd+d",
@@ -280,14 +262,9 @@
     "command": "workbench.view.extensions",
   },
   {
-    "key": "cmd+shift+s",
-    "command": "workbench.view.scm",
-    "when": "workbench.scm.active"
-  },
-  {
     "key": "shift+cmd+t",
     "command": "workbench.action.terminal.toggleTerminal",
-    "when": "terminal.active"
+    "when": "terminal."
   },
   {
     "key": "cmd+k cmd+up",
@@ -316,79 +293,69 @@
     "when": "terminal.active"
   },
   {
-    "key": "shift+cmd+m",
-    "command": "cursor.openOrFocusGlassWindow"
+    "key": "cmd+t",
+    "command": "claude-vscode.newConversation",
+    "when": "activeWebviewPanelId == 'claudeVSCodePanel' || (claude-vscode.sideBarActive && !editorFocus && !panelFocus)"
   },
   {
-    "key": "shift+cmd+m",
-    "command": "-workbench.actions.view.problems",
-    "when": "workbench.panel.markers.view.active"
+    "key": "shift+cmd+w",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "activeWebviewPanelId == 'claudeVSCodePanel'"
   },
   {
-    "key": "shift+cmd+m",
-    "command": "-glass.toggleExpandedAgent",
-    "when": "isGlassAgentWorkspace"
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+        "text": "\u001b\r"
+    },
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+t",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "shift+cmd+up",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  { "key": "shift+cmd+down",  "command": "workbench.action.navigateDown",  "when": "terminalFocus" },
+  { "key": "shift+cmd+left",  "command": "workbench.action.navigateLeft",  "when": "terminalFocus" },
+  { "key": "shift+cmd+right", "command": "workbench.action.navigateRight", "when": "terminalFocus" },
+  { "key": "cmd+1", "command": "workbench.action.terminal.focusAtIndex1", "when": "terminalFocus" },
+  { "key": "cmd+2", "command": "workbench.action.terminal.focusAtIndex2", "when": "terminalFocus" },
+  { "key": "cmd+3", "command": "workbench.action.terminal.focusAtIndex3", "when": "terminalFocus" },
+  { "key": "cmd+4", "command": "workbench.action.terminal.focusAtIndex4", "when": "terminalFocus" },
+  { "key": "cmd+5", "command": "workbench.action.terminal.focusAtIndex5", "when": "terminalFocus" },
+  { "key": "cmd+6", "command": "workbench.action.terminal.focusAtIndex6", "when": "terminalFocus" },
+  { "key": "cmd+7", "command": "workbench.action.terminal.focusAtIndex7", "when": "terminalFocus" },
+  { "key": "cmd+8", "command": "workbench.action.terminal.focusAtIndex8", "when": "terminalFocus" },
+  {
+    "key": "cmd+9",
+    "command": "workbench.action.terminal.focusAtIndex9",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "-composer.openBrowserTab",
+    "when": "!isGlass"
+  },
+  {
+    "key": "alt+cmd+b",
+    "command": "-workbench.action.toggleAuxiliaryBar",
+    "when": "!isAuxiliaryWindowFocusedContext"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "claudeVSCodeSidebarSecondary.toggleVisibility"
+  },
+  {
+    "key": "shift+cmd+s",
+    "command": "workbench.view.scm"
   },
   {
     "key": "shift+cmd+g",
     "command": "workbench.view.extension.github-pull-request"
-  },
-  {
-    "key": "cmd+m",
-    "command": "composer.openModelToggle",
-    "when: "composerFocused && !editorTextFocus"
-  },
-  {
-    "key": "shift+cmd+7",
-    "command": "-composer.openModelToggle",
-    "when": "composerFocused && !editorTextFocus"
-  },
-  {
-    "key": "cmd+e",
-    "command": "composer.cycleModelParameter",
-    "when": "composerFocused && !editorTextFocus"
-  },
-  {
-    "key": "shift+cmd+[Minus]",
-    "command": "-composer.cycleModelParameter",
-    "when": "composerFocused && !editorTextFocus"
-  },
-  {
-    "key": "shift+cmd+r",
-    "command": "composer.renameChat",
-    "when": "composerFocused && !editorTextFocus"
-  },
-  {
-    "key": "alt+cmd+[Minus]",
-    "command": "-composer.showComposerHistory
-  },
-  {
-    "key": "cmd+m",
-    "command": "-markdown.extension.editing.toggleMath",
-    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
-  },
-  {
-    "key": "cmd+e",
-    "command": "-cursor.toggleAgentWindowIDEUnification",
-    "when": "!isGlass && workbenchState != 'empty'"
-  },
-  {
-    "key": "cmd+e",
-    "command": "-actions.findWithSelection",
-  },
-  {
-    "key": "cmd+e",
-    "command": "-thunder-client.change-env",
-    "when": "activeWebviewPanelId == 'tc.env-view' || activeWebviewPanelId == 'tc.runcol-view'"
-  },
-  {
-    "key": "cmd+e",
-    "command": "-editor.action.toggleScreenReaderAccessibilityMode",
-    "when": "accessibilityHelpIsShown"
-  },
-  {
-    "key": "cmd+h",
-    "command": "composer.showComposerHistoryEditor",
-    "when": "!cursor.agentIdeUnification.unifiedSidebarVisible && resourceScheme == 'cursor.composer'"
-  },
+  }
 ]

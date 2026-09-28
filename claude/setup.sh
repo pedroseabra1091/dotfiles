@@ -10,7 +10,7 @@ else
 fi
 
 xecho_info "claude" "$(pwd)/CLAUDE.md.symlink to ~/.claude/"
-ln -s -i $(pwd)/CLAUDE.md.symlink ~/.claude/CLAUDE.md
+ln -s -i $(pwd)/CLAUDE.md.symlink ~/.claude/rules/CLAUDE.md
 
 xecho_info "claude" "$(pwd)/settings.json.symlink to ~/.claude/"
 ln -s -i $(pwd)/settings.json.symlink ~/.claude/settings.json

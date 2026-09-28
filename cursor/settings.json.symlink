@@ -1,5 +1,5 @@
 {
-    "editor.fontSize": 13,
+    "editor.fontSize": 14,
     "editor.fontVariations": false,
     "editor.fontWeight": "bold",
     "editor.tabSize": 2,
@@ -8,6 +8,19 @@
       "editorIndentGuide.activeBackground1": "#fff3cc",
       "tab.selectedBorderTop": "#fff3c"
     },
-    "workbench.colorTheme": "Material Theme Palenight",
-    "workbench.activityBar.orientation": "vertical"
+    "workbench.colorTheme": "Everforest Dark",
+    "workbench.activityBar.orientation": "horizontal",
+    "security.promptForLocalFileProtocolHandling": false,
+    "claudeCode.preferredLocation": "panel",
+    "yaml.disableSchemaDetection": [
+      "**/.github/workflows/*.yml",
+      "**/.github/workflows/*.yaml",
+      "**/.gitea/workflows/*.yml",
+      "**/.gitea/workflows/*.yaml",
+      "**/.forgejo/workflows/*.yml",
+      "**/.forgejo/workflows/*.yaml"
+    ],
+    "claudeCode.useTerminal": true,
+    "terminal.integrated.mouseWheelScrollSensitivity": 3,
+    "terminal.integrated.gpuAcceleration": "off"
 }
