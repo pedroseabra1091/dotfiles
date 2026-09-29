@@ -1,0 +1,127 @@
+[
+  {
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-l": "multi_workspace::ToggleWorkspaceSidebar"
+    }
+  },
+  {
+    "context": "Workspace",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-shift-s": "git_panel::ToggleFocus",
+      "cmd-shift-t": "terminal_panel::Toggle",
+      "cmd-shift-a": "workspace::FocusPreviousPart",
+      "cmd-shift-d": "workspace::FocusNextPart"
+    }
+  },
+  {
+    "context": "Pane",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-1": ["pane::ActivateItem", 0],
+      "cmd-2": ["pane::ActivateItem", 1],
+      "cmd-3": ["pane::ActivateItem", 2],
+      "cmd-4": ["pane::ActivateItem", 3],
+      "cmd-5": ["pane::ActivateItem", 4],
+      "cmd-6": ["pane::ActivateItem", 5],
+      "cmd-7": ["pane::ActivateItem", 6],
+      "cmd-8": ["pane::ActivateItem", 7],
+      "cmd-9": ["pane::ActivateItem", 8],
+      "shift-cmd-w": ["pane::CloseOtherItems", { "close_pinned": false }],
+      "cmd-shift-a": "multi_workspace::FocusWorkspaceSidebar",
+      "cmd-shift-d": "agent::ToggleFocus",
+      "cmd-\\": "pane::SplitRight",
+      "cmd-shift-f": "pane::DeploySearch",
+      "cmd-k f": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-g": "go_to_line::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-k cmd-p": "workspace::CopyRelativePath",
+      "cmd-t": "workspace::NewFile"
+    }
+  },
+  {
+    "context": "Terminal",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-t": "workspace::NewTerminal"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "use_key_equivalents": true,
+    "bindings": {
+      "ctrl-shift-n": "project_panel::NewDirectory",
+      "cmd-shift-a": "multi_workspace::ToggleWorkspaceSidebar"
+    }
+  },
+  {
+    "unbind": {
+      "cmd-h": "zed::Hide"
+    }
+  },
+  {
+    "context": "Workspace",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-h": [
+        "action::Sequence",
+        [
+          "multi_workspace::FocusWorkspaceSidebar",
+          "agents_sidebar::FocusSidebarFilter"
+        ]
+      ]
+    }
+  },
+  {
+    "context": "AgentPanel",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-shift-a": "workspace::FocusCenterPane",
+      "cmd-shift-d": "multi_workspace::FocusWorkspaceSidebar",
+      "cmd-shift-r": "agent::RenameSelectedThread"
+    }
+  },
+  {
+    "context": "ThreadSwitcher",
+    "use_key_equivalents": true,
+    "bindings": {
+      "down": "agents_sidebar::ToggleThreadSwitcher",
+      "up": ["agents_sidebar::ToggleThreadSwitcher", { "select_last": true }],
+      "enter": "menu::Confirm"
+    }
+  },
+  {
+    "context": "ThreadsSidebar",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-t": "agents_sidebar::NewThreadInGroup",
+      "cmd-shift-a": "agent::ToggleFocus",
+      "cmd-shift-d": "workspace::FocusCenterPane",
+      "cmd-shift-r": "agent::RenameSelectedThread"
+    }
+  },
+  {
+    "context": "AcpThread > Editor",
+"use_key_equivalents": true,
+    "bindings": {
+      "cmd-shift-a": "workspace::FocusCenterPane",
+      "cmd-shift-d": "multi_workspace::FocusWorkspaceSidebar",
+      "cmd-e": "agent::CycleThinkingEffort",
+      "cmd-m": "agent::CycleFavoriteModels",
+      "cmd-.": "agent::CycleModeSelector",
+      "cmd-t": "agent::NewThread"
+    }
+  }
+]

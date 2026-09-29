@@ -63,6 +63,9 @@ ln -s -i $(pwd)/git/gitconfig.symlink ~/.gitconfig
 xecho_info "cursor" "Set up Cursor"
 sh "$(dirname "$0")/cursor/setup.sh"
 
+xecho_info "zed" "Set up Zed"
+sh "$(dirname "$0")/zed/setup.sh"
+
 if [ -d ~/.config/karabiner ]; then
   xecho_info "karabiner" "Symlink karabiner.json"
   ln -s -i $(pwd)/karabiner/karabiner.json.symlink ~/.config/karabiner/karabiner.json
