@@ -9,8 +9,7 @@
     "context": "Workspace",
     "use_key_equivalents": true,
     "bindings": {
-      "cmd-shift-s": "git_panel::ToggleFocus",
-      "cmd-shift-t": "terminal_panel::Toggle",
+      "cmd-shift-s": "git_panel::ToggleFocus",      "cmd-shift-t": "terminal_panel::Toggle",
       "cmd-shift-a": "workspace::FocusPreviousPart",
       "cmd-shift-d": "workspace::FocusNextPart"
     }
@@ -109,7 +108,9 @@
       "cmd-t": "agents_sidebar::NewThreadInGroup",
       "cmd-shift-a": "agent::ToggleFocus",
       "cmd-shift-d": "workspace::FocusCenterPane",
-      "cmd-shift-r": "agent::RenameSelectedThread"
+      "cmd-shift-r": "agent::RenameSelectedThread",
+      "shift-backspace": null,
+      "cmd-backspace": "agent::ArchiveSelectedThread"
     }
   },
   {

@@ -33,6 +33,7 @@
   },
   "agent": {
     "dock": "right",
+    "sidebar_side": "right",
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-3-5-sonnet-20240620"
