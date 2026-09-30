@@ -35,8 +35,10 @@
     "dock": "right",
     "sidebar_side": "right",
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-20240620"
+      "effort": "high",
+      "enable_thinking": true,
+      "provider": "anthropic",
+      "model": "claude-sonnet-5-5"
     },
   },
   "ui_font_size": 16,

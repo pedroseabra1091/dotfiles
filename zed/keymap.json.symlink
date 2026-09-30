@@ -2,14 +2,20 @@
   {
     "use_key_equivalents": true,
     "bindings": {
-      "cmd-l": "multi_workspace::ToggleWorkspaceSidebar"
+      "cmd-l": null,
+      "cmd-r": null
     }
   },
   {
     "context": "Workspace",
     "use_key_equivalents": true,
     "bindings": {
-      "cmd-shift-s": "git_panel::ToggleFocus",      "cmd-shift-t": "terminal_panel::Toggle",
+      "cmd-shift-s": "git_panel::ToggleFocus",
+      "cmd-shift-o": "projects::OpenRecent",
+      "cmd-shift-b": [
+        "action::Sequence",
+        ["multi_workspace::ToggleWorkspaceSidebar", "workspace::ToggleRightDock"]
+      ],      "cmd-shift-t": "terminal_panel::Toggle",
       "cmd-shift-a": "workspace::FocusPreviousPart",
       "cmd-shift-d": "workspace::FocusNextPart"
     }
@@ -27,7 +33,7 @@
       "cmd-7": ["pane::ActivateItem", 6],
       "cmd-8": ["pane::ActivateItem", 7],
       "cmd-9": ["pane::ActivateItem", 8],
-      "shift-cmd-w": ["pane::CloseOtherItems", { "close_pinned": false }],
+      "cmd-shift-w": ["pane::CloseOtherItems", { "close_pinned": false }],
       "cmd-shift-a": "multi_workspace::FocusWorkspaceSidebar",
       "cmd-shift-d": "agent::ToggleFocus",
       "cmd-\\": "pane::SplitRight",
@@ -46,6 +52,8 @@
     "context": "Editor",
     "use_key_equivalents": true,
     "bindings": {
+      "cmd-l": null,
+      "cmd-r": null,
       "cmd-k cmd-p": "workspace::CopyRelativePath",
       "cmd-t": "workspace::NewFile"
     }
@@ -67,7 +75,8 @@
   },
   {
     "unbind": {
-      "cmd-h": "zed::Hide"
+      "cmd-h": "zed::Hide",
+      "cmd-shift-w": "workspace::CloseWindow"
     }
   },
   {
