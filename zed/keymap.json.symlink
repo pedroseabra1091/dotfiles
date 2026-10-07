@@ -47,7 +47,8 @@
     "use_key_equivalents": true,
     "bindings": {
       "cmd-g": "go_to_line::Toggle",
-      "cmd-shift-o": "projects::OpenRecent"
+      "cmd-shift-o": "projects::OpenRecent",
+      "cmd-t": "workspace::NewFile"
     }
   },
   {
@@ -57,8 +58,7 @@
       "cmd-l": null,
       "cmd-r": null,
       "cmd-shift-o": "projects::OpenRecent",
-      "cmd-k cmd-p": "workspace::CopyRelativePath",
-      "cmd-t": "workspace::NewFile"
+      "cmd-k cmd-p": "workspace::CopyRelativePath"
     }
   },
   {
@@ -101,7 +101,8 @@
     "bindings": {
       "cmd-shift-a": "workspace::FocusCenterPane",
       "cmd-shift-d": "multi_workspace::FocusWorkspaceSidebar",
-      "cmd-shift-r": "agent::RenameSelectedThread"
+      "cmd-shift-r": "agent::RenameSelectedThread",
+      "cmd-t": "agent::NewThread"
     }
   },
   {
