@@ -7,12 +7,14 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+  "diff_view_style": "unified",
   "debugger": {
     "button": false
   },
   "agent_servers": {
     "claude-acp": {
       "default_config_options": {
+        "effort": "high",
         "mode": "default"
       },
       "type": "registry"
@@ -34,6 +36,7 @@
   "agent": {
     "dock": "right",
     "sidebar_side": "right",
+    "expand_terminal_card": false,
     "default_model": {
       "effort": "high",
       "enable_thinking": true,
@@ -43,7 +46,8 @@
   },
   "ui_font_size": 16,
   "buffer_font_size": 16,
-  "theme": {
+  "agent_ui_font_size": 18,
+  "agent_buffer_font_size": 14,  "theme": {
     "mode": "dark",
     "light": "Ayu Light",
     "dark": "Everforest Dark Hard (regular)"
