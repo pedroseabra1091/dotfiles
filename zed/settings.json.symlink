@@ -7,6 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+  "icon_theme": {
+    "mode": "light",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
   "cli_default_open_behavior": "existing_window",
   "diff_view_style": "unified",
   "debugger": {
@@ -35,8 +40,10 @@
     "dock": "left"
   },
   "agent": {
+    "threads_sidebar": {
+      "position": "right"
+    },
     "dock": "right",
-    "sidebar_side": "right",
     "expand_terminal_card": false,
     "default_model": {
       "effort": "high",
@@ -47,10 +54,13 @@
   },
   "ui_font_size": 16,
   "buffer_font_size": 16,
-  "agent_ui_font_size": 18,
+  "agent_ui_font_size": 22,
   "agent_buffer_font_size": 14,  "theme": {
-    "mode": "dark",
-    "light": "Ayu Light",
+    "mode": "light",
+    "light": "Remedy Bright",
     "dark": "Everforest Dark Hard (regular)"
-  }
+  },
+  "markdown_preview": {
+    "limit_content_width": false
+}
 }
